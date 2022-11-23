@@ -5,7 +5,11 @@ const AppError = require('../utils/AppError');
 
 class PostController {
   getAll = asyncHandler(async (req, res, next) => {
-    const total = (await Post.find()).length;
+    const total = (
+      await Post.find({
+        status: req.user.role === 'USER' ? 'APPROVED' : /.+/,
+      })
+    ).length;
     const page = +req.query.page || 1;
     const limit = +req.query.limit || 10;
     const skip = (page - 1) * limit;

@@ -1,6 +1,7 @@
 const Comment = require('../models/comment.model');
 const asyncHandler = require('../utils/asyncHandler');
 const { sendSuccess } = require('../utils/sendResponse');
+const Post = require('../models/post.model');
 const AppError = require('../utils/AppError');
 
 class CommentController {

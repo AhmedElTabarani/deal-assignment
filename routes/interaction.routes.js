@@ -5,7 +5,6 @@ const interaction = require('../controllers/interaction.controller');
 
 router.route('/').get(
   authController.verification,
-  // authController.restrictTo('ADMIN'),
   interaction.getAll
 );
 

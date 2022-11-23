@@ -5,7 +5,6 @@ const comment = require('../controllers/comment.controller');
 
 router.route('/').get(
   authController.verification,
-  // authController.restrictTo('ADMIN'),
   comment.getAll
 );
 

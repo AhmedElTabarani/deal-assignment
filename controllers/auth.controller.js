@@ -26,6 +26,7 @@ class AuthController {
       password,
     });
 
+    user.password = undefined;
     const token = await generateToken(user);
     sendSuccess(user, 201, res, { token });
   });
@@ -40,8 +41,8 @@ class AuthController {
     )
       return next(new AppError('Email or password not correct', 401));
 
+    user.password = undefined;
     const token = await generateToken(user);
-
     sendSuccess(user, 200, res, { token });
   });
 

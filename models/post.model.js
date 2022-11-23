@@ -13,7 +13,7 @@ const postSchema = new mongoose.Schema(
     status: {
       type: String,
       enum: {
-        values: ['APPROVED', 'PENDING', 'REJECTED', 'ANGRY'],
+        values: ['APPROVED', 'PENDING', 'REJECTED'],
         message:
           'Post status must be one of these values (APPROVED, PENDING, REJECTED)',
       },
@@ -34,8 +34,7 @@ const postSchema = new mongoose.Schema(
 
 postSchema.pre(/^find/, function (next) {
   this.populate({
-    path: 'createdBy',
-    select: '-createdAt -updatedAt',
+    path: 'createdBy'
   });
 
   next();

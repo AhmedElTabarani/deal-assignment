@@ -28,7 +28,6 @@ router
 
 router.route('/').get(
   authController.verification,
-  // authController.restrictTo('ADMIN'),
   post.getAll
 );
 
