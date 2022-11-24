@@ -31,7 +31,10 @@
     "jsonwebtoken": "^8.5.1",
     "mocha": "^10.1.0",
     "mongoose": "^6.7.2",
+    "mongoose-to-swagger": "^1.4.0",
     "morgan": "^1.10.0",
+    "swagger-jsdoc": "^6.2.5",
+    "swagger-ui-express": "^4.6.0",
     "validator": "^13.7.0",
     "xss-clean": "^0.1.1"
   },

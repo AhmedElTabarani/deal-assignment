@@ -45,7 +45,7 @@ class CommentController {
 
   create = asyncHandler(async (req, res, next) => {
     const { body } = req.body;
-    const post = req.params.postId;
+    const post = req.params.id;
     const createdBy = req.user._id;
 
     if (!(await Post.findById(post))) {

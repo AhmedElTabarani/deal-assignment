@@ -7,6 +7,9 @@ const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 
+const swaggerUI = require('swagger-ui-express');
+const specs = require('./swagger/swaggerSpecs');
+
 const errorController = require('./controllers/error.controller');
 const AppError = require('./utils/AppError');
 
@@ -42,6 +45,7 @@ app.use(hpp());
 
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(specs));
 app.use('/api/users', userRouter);
 app.use('/api/posts', postRouter);
 app.use('/api/comments', commentRouter);
