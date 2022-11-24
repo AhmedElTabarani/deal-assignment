@@ -23,8 +23,8 @@ describe('> User Operations', async () => {
   before(async () => {
     server = await server;
   });
-  afterEach(async () => {
-    await User.deleteMany({});
+  afterEach(() => {
+    return User.deleteMany({});
   });
   describe('> User signup', () => {
     it('should success to signup a user', (done) => {

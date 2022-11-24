@@ -22,15 +22,16 @@ const testPost = {
   body: 'body',
 };
 
-describe.only('> Comment Operation', () => {
+describe('> Comment Operation', () => {
   before(async () => {
     server = await server;
-    await Comment.deleteMany({});
   });
-  afterEach(async () => {
-    await Comment.deleteMany({});
-    await Post.deleteMany({});
-    await User.deleteMany({});
+  afterEach(() => {
+    return Promise.all([
+      Comment.deleteMany({}),
+      Post.deleteMany({}),
+      User.deleteMany({}),
+    ]);
   });
   describe('> Create a comment', () => {
     beforeEach(() => {

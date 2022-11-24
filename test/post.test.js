@@ -27,11 +27,9 @@ const testPost = {
 describe('> Post Operation', () => {
   before(async () => {
     server = await server;
-    await Post.deleteMany({});
   });
-  afterEach(async () => {
-    await Post.deleteMany({});
-    await User.deleteMany({});
+  afterEach(() => {
+    return Promise.all([Post.deleteMany({}), User.deleteMany({})]);
   });
   describe('> Create a post', () => {
     it('should normal user can create a post', (done) => {
